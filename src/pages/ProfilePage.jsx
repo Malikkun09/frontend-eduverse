@@ -72,32 +72,32 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 px-4 py-12">
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-12">
-          <h1 className="text-7xl font-display font-black text-black dark:text-white uppercase mb-4 text-shadow-brutal">
+    <div className="min-h-screen bg-white dark:bg-gray-900 px-4 py-8 sm:py-12">
+      <div className="max-w-3xl mx-auto min-w-0">
+        <div className="mb-8 sm:mb-12">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black text-black dark:text-white uppercase mb-3 sm:mb-4 text-shadow-brutal break-words">
             Profile
           </h1>
-          <p className="text-2xl font-bold text-gray-700 dark:text-gray-300">
+          <p className="text-base sm:text-lg md:text-2xl font-bold text-gray-700 dark:text-gray-300">
             Manage your account information
           </p>
         </div>
 
-        <div className="bg-primary-pink dark:bg-primary-blue border-4 border-black dark:border-white p-8 shadow-brutal mb-8">
-          <div className="flex items-center gap-4">
-            <div className="w-20 h-20 bg-white dark:bg-gray-800 border-4 border-black dark:border-white flex items-center justify-center">
-              <span className="text-4xl font-black text-black dark:text-white">
+        <div className="bg-primary-pink dark:bg-primary-blue border-4 border-black dark:border-white p-5 sm:p-6 md:p-8 shadow-brutal mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white dark:bg-gray-800 border-4 border-black dark:border-white flex items-center justify-center flex-shrink-0">
+              <span className="text-3xl sm:text-4xl font-black text-black dark:text-white">
                 {user?.name?.charAt(0).toUpperCase() || '?'}
               </span>
             </div>
-            <div>
-              <h2 className="text-3xl font-display font-black text-black dark:text-white uppercase">
+            <div className="min-w-0">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-black dark:text-white uppercase break-words">
                 {user?.name}
               </h2>
-              <p className="font-bold text-black dark:text-white">
+              <p className="font-bold text-black dark:text-white break-all">
                 @{user?.username}
               </p>
-              <p className="font-bold text-black dark:text-white">
+              <p className="font-bold text-black dark:text-white break-all">
                 {user?.email}
               </p>
             </div>
@@ -118,7 +118,7 @@ const ProfilePage = () => {
           )}
 
           <div>
-            <label className="block text-xl font-bold text-black dark:text-white mb-2 uppercase">
+            <label className="block text-base sm:text-lg md:text-xl font-bold text-black dark:text-white mb-2 uppercase">
               Full Name
             </label>
             <input
@@ -133,7 +133,7 @@ const ProfilePage = () => {
           </div>
 
           <div>
-            <label className="block text-xl font-bold text-black dark:text-white mb-2 uppercase">
+            <label className="block text-base sm:text-lg md:text-xl font-bold text-black dark:text-white mb-2 uppercase">
               School
             </label>
             <input
@@ -147,7 +147,7 @@ const ProfilePage = () => {
           </div>
 
           <div>
-            <label className="block text-xl font-bold text-black dark:text-white mb-2 uppercase">
+            <label className="block text-base sm:text-lg md:text-xl font-bold text-black dark:text-white mb-2 uppercase">
               Class
             </label>
             <input
@@ -162,7 +162,7 @@ const ProfilePage = () => {
           </div>
 
           <div>
-            <label className="block text-xl font-bold text-black dark:text-white mb-2 uppercase">
+            <label className="block text-base sm:text-lg md:text-xl font-bold text-black dark:text-white mb-2 uppercase">
               Region
             </label>
             <input
@@ -178,7 +178,7 @@ const ProfilePage = () => {
 
           <button
             type="submit"
-            className="btn-brutal btn-brutal-primary w-full text-xl py-4"
+            className="btn-brutal btn-brutal-primary w-full text-base sm:text-lg md:text-xl py-3 sm:py-4"
             disabled={saving}
           >
             {saving ? 'SAVING...' : 'SAVE CHANGES'}

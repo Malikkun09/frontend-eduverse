@@ -89,23 +89,23 @@ const SubjectDetailPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 px-4 py-12">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-white dark:bg-gray-900 px-4 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto min-w-0">
         {/* Subject Header */}
-        <div className="mb-12">
-          <Link to="/dashboard" className="inline-flex items-center gap-2 font-bold text-primary-pink dark:text-primary-blue mb-6 hover:translate-x-1 transition-transform">
-            <span className="text-2xl">←</span>
-            <span className="text-xl">Back to Dashboard</span>
+        <div className="mb-8 sm:mb-12">
+          <Link to="/dashboard" className="inline-flex items-center gap-2 font-bold text-primary-pink dark:text-primary-blue mb-4 sm:mb-6 hover:translate-x-1 transition-transform">
+            <span className="text-xl sm:text-2xl">←</span>
+            <span className="text-base sm:text-lg md:text-xl">Back to Dashboard</span>
           </Link>
           
-          <div className="bg-primary-pink dark:bg-primary-blue border-4 border-black dark:border-white p-8 shadow-brutal">
-            <div className="flex items-center gap-6">
-              <span className="text-7xl">{subject.icon || '📚'}</span>
-              <div>
-                <h1 className="text-6xl font-display font-black text-white dark:text-black uppercase mb-2">
+          <div className="bg-primary-pink dark:bg-primary-blue border-4 border-black dark:border-white p-5 sm:p-6 md:p-8 shadow-brutal">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+              <span className="text-5xl sm:text-6xl md:text-7xl flex-shrink-0">{subject.icon || '📚'}</span>
+              <div className="min-w-0">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-white dark:text-black uppercase mb-2 break-words">
                   {subject.name}
                 </h1>
-                <p className="text-2xl font-bold text-white dark:text-black">
+                <p className="text-base sm:text-lg md:text-2xl font-bold text-white dark:text-black break-words">
                   {subject.description || `Master ${subject.name}`}
                 </p>
               </div>
@@ -114,11 +114,11 @@ const SubjectDetailPage = () => {
         </div>
 
         {/* Learning Path Header */}
-        <div className="mb-8">
-          <h2 className="text-5xl font-display font-black text-black dark:text-white uppercase mb-4">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-black dark:text-white uppercase mb-3 sm:mb-4">
             Learning Path
           </h2>
-          <p className="text-xl font-bold text-gray-700 dark:text-gray-300">
+          <p className="text-base sm:text-lg md:text-xl font-bold text-gray-700 dark:text-gray-300">
             Complete each lesson to unlock the next challenge
           </p>
         </div>
@@ -156,9 +156,9 @@ const SubjectDetailPage = () => {
                         !isLocked ? 'hover:translate-x-2 hover:translate-y-2 hover:shadow-none' : 'cursor-not-allowed'
                       } transition-all duration-200`}
                     >
-                      <div className="flex items-center gap-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                         {/* Lesson Number/Status Circle */}
-                        <div className={`w-16 h-16 border-4 border-black dark:border-white flex items-center justify-center ${
+                        <div className={`w-12 h-12 sm:w-16 sm:h-16 border-4 border-black dark:border-white flex items-center justify-center flex-shrink-0 ${
                           isCompleted ? 'bg-green-400' : 
                           isLocked ? 'bg-gray-400' : 
                           'bg-primary-blue'
@@ -169,11 +169,11 @@ const SubjectDetailPage = () => {
                         </div>
 
                         {/* Lesson Info */}
-                        <div className="flex-1">
-                          <h3 className="text-2xl font-display font-black text-black dark:text-white uppercase mb-2">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-display font-black text-black dark:text-white uppercase mb-2 break-words">
                             {source.title}
                           </h3>
-                          <div className="flex items-center gap-4 text-sm font-bold text-gray-600 dark:text-gray-400">
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm font-bold text-gray-600 dark:text-gray-400">
                             {source.question_count > 0 && (
                               <span>📝 {source.question_count} Questions</span>
                             )}
@@ -185,7 +185,7 @@ const SubjectDetailPage = () => {
 
                         {/* Action Button */}
                         {!isLocked && (
-                          <div className="btn-brutal btn-brutal-primary">
+                          <div className="btn-brutal btn-brutal-primary text-sm sm:text-base w-full sm:w-auto text-center flex-shrink-0">
                             {isCompleted ? 'Review' : 'Start'}
                           </div>
                         )}
@@ -199,9 +199,9 @@ const SubjectDetailPage = () => {
         )}
 
         {/* Progress Summary */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-primary-blue border-4 border-black dark:border-white p-6 shadow-brutal">
-            <div className="text-5xl font-black text-black mb-2">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="bg-primary-blue border-4 border-black dark:border-white p-4 sm:p-6 shadow-brutal">
+            <div className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-2">
               {sources.length}
             </div>
             <div className="font-bold text-black uppercase text-lg">
@@ -209,17 +209,17 @@ const SubjectDetailPage = () => {
             </div>
           </div>
 
-          <div className="bg-yellow-400 border-4 border-black dark:border-white p-6 shadow-brutal">
-            <div className="text-5xl font-black text-black mb-2">
+          <div className="bg-yellow-400 border-4 border-black dark:border-white p-4 sm:p-6 shadow-brutal">
+            <div className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-2">
               0
             </div>
-            <div className="font-bold text-black uppercase text-lg">
+            <div className="font-bold text-black uppercase text-base sm:text-lg">
               Completed
             </div>
           </div>
 
-          <div className="bg-primary-pink border-4 border-black dark:border-white p-6 shadow-brutal">
-            <div className="text-5xl font-black text-white mb-2">
+          <div className="bg-primary-pink border-4 border-black dark:border-white p-4 sm:p-6 shadow-brutal">
+            <div className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-2">
               0%
             </div>
             <div className="font-bold text-white uppercase text-lg">

@@ -23,20 +23,20 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center px-4 py-12">
-      <div className="max-w-md w-full">
-        <div className="text-center mb-8">
-          <h1 className="text-6xl font-display font-black text-black dark:text-white uppercase mb-4">
+    <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center px-4 py-8 sm:py-12">
+      <div className="max-w-md w-full min-w-0">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-black text-black dark:text-white uppercase mb-3 sm:mb-4">
             Login
           </h1>
-          <p className="text-xl font-bold text-gray-700 dark:text-gray-300">
+          <p className="text-base sm:text-lg md:text-xl font-bold text-gray-700 dark:text-gray-300">
             Welcome back to EduVerse — Demo Mode
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-xl font-bold text-black dark:text-white mb-2 uppercase">
+            <label className="block text-base sm:text-lg md:text-xl font-bold text-black dark:text-white mb-2 uppercase">
               Username
             </label>
             <input
@@ -50,7 +50,7 @@ const LoginPage = () => {
           </div>
 
           <div>
-            <label className="block text-xl font-bold text-black dark:text-white mb-2 uppercase">
+            <label className="block text-base sm:text-lg md:text-xl font-bold text-black dark:text-white mb-2 uppercase">
               Password
             </label>
             <input
@@ -65,7 +65,7 @@ const LoginPage = () => {
 
           <button
             type="submit"
-            className="btn-brutal btn-brutal-primary w-full text-xl py-4"
+            className="btn-brutal btn-brutal-primary w-full text-base sm:text-lg md:text-xl py-3 sm:py-4"
           >
             LOGIN
           </button>

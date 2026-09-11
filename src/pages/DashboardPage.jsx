@@ -96,13 +96,13 @@ const DashboardPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 px-4 py-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-12">
-          <h1 className="text-7xl font-display font-black text-black dark:text-white uppercase mb-4 text-shadow-brutal">
+    <div className="min-h-screen bg-white dark:bg-gray-900 px-4 py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto min-w-0">
+        <div className="mb-8 sm:mb-12">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black text-black dark:text-white uppercase mb-3 sm:mb-4 text-shadow-brutal break-words">
             Dashboard
           </h1>
-          <p className="text-2xl font-bold text-gray-700 dark:text-gray-300">
+          <p className="text-base sm:text-lg md:text-2xl font-bold text-gray-700 dark:text-gray-300">
             Choose a subject to start learning
           </p>
         </div>
@@ -117,23 +117,23 @@ const DashboardPage = () => {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {subjects.map((subject, index) => (
               <Link
                 key={subject.id}
                 to={`/subject/${subject.slug}`}
                 ref={(el) => (cardsRef.current[index] = el)}
-                className={`card-brutal ${colors[index % colors.length]} p-8 group cursor-pointer`}
+                className={`card-brutal ${colors[index % colors.length]} p-5 sm:p-6 md:p-8 group cursor-pointer min-w-0`}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-3xl font-display font-black text-black uppercase">
+                <div className="flex items-start justify-between gap-2 mb-3 sm:mb-4">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-black uppercase break-words min-w-0">
                     {subject.name}
                   </h3>
-                  <span className="text-4xl group-hover:scale-110 transition-transform">
+                  <span className="text-2xl sm:text-3xl md:text-4xl group-hover:scale-110 transition-transform flex-shrink-0">
                     {subject.icon || '📚'}
                   </span>
                 </div>
-                <p className="text-lg font-bold text-black mb-4">
+                <p className="text-sm sm:text-base md:text-lg font-bold text-black mb-3 sm:mb-4 break-words">
                   {subject.description || `Learn ${subject.name}`}
                 </p>
                 <div className="flex items-center justify-between">
@@ -149,29 +149,29 @@ const DashboardPage = () => {
           </div>
         )}
 
-        <div className="mt-12 border-4 border-black dark:border-white bg-primary-blue dark:bg-primary-pink p-8 shadow-brutal">
-          <h2 className="text-4xl font-display font-black text-black dark:text-white uppercase mb-4">
+        <div className="mt-8 sm:mt-12 border-4 border-black dark:border-white bg-primary-blue dark:bg-primary-pink p-5 sm:p-6 md:p-8 shadow-brutal">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-black dark:text-white uppercase mb-4">
             Quick Stats
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-gray-800 border-2 border-black dark:border-white p-6">
-              <div className="text-5xl font-black text-black dark:text-white mb-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <div className="bg-white dark:bg-gray-800 border-2 border-black dark:border-white p-4 sm:p-6">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white mb-2">
                 {subjects.length}
               </div>
               <div className="font-bold text-black dark:text-white uppercase">
                 Total Subjects
               </div>
             </div>
-            <div className="bg-white dark:bg-gray-800 border-2 border-black dark:border-white p-6">
-              <div className="text-5xl font-black text-black dark:text-white mb-2">
+            <div className="bg-white dark:bg-gray-800 border-2 border-black dark:border-white p-4 sm:p-6">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white mb-2">
                 {subjects.reduce((sum, s) => sum + (s.sources_count || 0), 0)}
               </div>
               <div className="font-bold text-black dark:text-white uppercase">
                 Total Materials
               </div>
             </div>
-            <div className="bg-white dark:bg-gray-800 border-2 border-black dark:border-white p-6">
-              <div className="text-5xl font-black text-black dark:text-white mb-2">
+            <div className="bg-white dark:bg-gray-800 border-2 border-black dark:border-white p-4 sm:p-6">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white mb-2">
                 0%
               </div>
               <div className="font-bold text-black dark:text-white uppercase">

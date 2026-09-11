@@ -8,9 +8,17 @@
   * {
     @apply border-black dark:border-white;
   }
+
+  html {
+    @apply overflow-x-hidden;
+  }
   
   body {
-    @apply font-sans antialiased;
+    @apply font-sans antialiased overflow-x-hidden;
+  }
+
+  #root {
+    @apply overflow-x-hidden min-w-0;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -20,7 +28,7 @@
 
 @layer components {
   .btn-brutal {
-    @apply px-6 py-3 border-4 border-black dark:border-white font-bold uppercase tracking-wide
+    @apply px-4 py-2 sm:px-6 sm:py-3 border-4 border-black dark:border-white font-bold uppercase tracking-wide
            transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px]
            hover:shadow-none active:translate-x-[8px] active:translate-y-[8px];
   }
@@ -34,7 +42,7 @@
   }
   
   .card-brutal {
-    @apply border-4 border-black dark:border-white shadow-brutal 
+    @apply border-4 border-black dark:border-white shadow-brutal min-w-0
            hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none 
            transition-all duration-200;
   }
