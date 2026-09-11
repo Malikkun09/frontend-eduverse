@@ -155,18 +155,18 @@ const LearningPage = () => {
         />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 py-6 sm:py-8 md:py-12 min-w-0">
         {/* Question Counter */}
-        <div className="mb-8 text-center">
-          <span className="text-2xl font-bold text-gray-600 dark:text-gray-400">
+        <div className="mb-6 sm:mb-8 text-center">
+          <span className="text-base sm:text-lg md:text-2xl font-bold text-gray-600 dark:text-gray-400">
             Question {currentQuestion + 1} of {questions.length}
           </span>
         </div>
 
         {/* Question Card */}
         <div ref={questionRef} className="mb-8">
-          <div className="bg-primary-pink dark:bg-primary-blue border-4 border-black dark:border-white p-8 shadow-brutal mb-8">
-            <h2 className="text-3xl font-display font-black text-white dark:text-black leading-tight">
+          <div className="bg-primary-pink dark:bg-primary-blue border-4 border-black dark:border-white p-4 sm:p-6 md:p-8 shadow-brutal mb-6 sm:mb-8">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-black text-white dark:text-black leading-tight break-words">
               {question.question}
             </h2>
           </div>
@@ -188,13 +188,13 @@ const LearningPage = () => {
                   key={option.id}
                   onClick={() => handleAnswerSelect(option.id)}
                   disabled={showFeedback}
-                  className={`w-full ${bgColor} border-4 border-black dark:border-white p-6 text-left shadow-brutal hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200 disabled:cursor-not-allowed`}
+                  className={`w-full ${bgColor} border-4 border-black dark:border-white p-4 sm:p-5 md:p-6 text-left shadow-brutal hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200 disabled:cursor-not-allowed`}
                 >
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl font-black text-black dark:text-white">
+                  <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
+                    <span className="text-lg sm:text-xl md:text-2xl font-black text-black dark:text-white flex-shrink-0">
                       {option.id}
                     </span>
-                    <span className="text-xl font-bold text-black dark:text-white flex-1">
+                    <span className="text-sm sm:text-base md:text-xl font-bold text-black dark:text-white flex-1 break-words min-w-0">
                       {option.text}
                     </span>
                     {showCorrect && <span className="text-3xl">✓</span>}
@@ -209,13 +209,13 @@ const LearningPage = () => {
         {/* Feedback Section */}
         {showFeedback && (
           <div ref={feedbackRef} className="mb-8">
-            <div className={`border-4 border-black dark:border-white p-8 shadow-brutal ${
+            <div className={`border-4 border-black dark:border-white p-4 sm:p-6 md:p-8 shadow-brutal ${
               isCorrect ? 'bg-green-400' : 'bg-red-400'
             }`}>
-              <h3 className="text-4xl font-display font-black text-black mb-4 uppercase">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-black mb-3 sm:mb-4 uppercase">
                 {isCorrect ? '🎉 Correct!' : '❌ Wrong!'}
               </h3>
-              <p className="text-xl font-bold text-black">
+              <p className="text-base sm:text-lg md:text-xl font-bold text-black break-words">
                 {isCorrect 
                   ? 'Great job! Keep it up!' 
                   : `The correct answer is ${question.options.find(o => o.correct)?.id}`
@@ -226,7 +226,7 @@ const LearningPage = () => {
         )}
 
         {/* Action Buttons */}
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           {!showFeedback ? (
             <>
               <button
@@ -246,7 +246,7 @@ const LearningPage = () => {
           ) : (
             <button
               onClick={handleNext}
-              className="btn-brutal btn-brutal-primary w-full text-2xl py-6"
+              className="btn-brutal btn-brutal-primary w-full text-base sm:text-lg md:text-2xl py-4 sm:py-5 md:py-6"
             >
               {currentQuestion < questions.length - 1 ? 'Next Question →' : 'Finish Quiz 🎯'}
             </button>
@@ -255,8 +255,8 @@ const LearningPage = () => {
 
         {/* Score Display */}
         <div className="mt-8 text-center">
-          <div className="inline-block bg-yellow-400 border-4 border-black dark:border-white px-8 py-4 shadow-brutal">
-            <span className="text-3xl font-black text-black">
+          <div className="inline-block bg-yellow-400 border-4 border-black dark:border-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 shadow-brutal">
+            <span className="text-xl sm:text-2xl md:text-3xl font-black text-black">
               Score: {score}/{questions.length}
             </span>
           </div>

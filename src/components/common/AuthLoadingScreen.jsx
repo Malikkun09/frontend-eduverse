@@ -41,13 +41,13 @@ const AuthLoadingScreen = ({ message }) => {
         .al-noise { position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
           opacity: 0.08; z-index: 1; pointer-events: none; mix-blend-mode: overlay; }
         .al-container { position: relative; z-index: 2; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: stretch; }
-        .al-bar { width: 100vw; height: 65px; background: repeating-linear-gradient(90deg, #87CEEB 0px, #87CEEB 60px, #000 60px, #000 120px, #FF69B4 120px, #FF69B4 180px);
+        .al-bar { width: 100%; height: 65px; background: repeating-linear-gradient(90deg, #87CEEB 0px, #87CEEB 60px, #000 60px, #000 120px, #FF69B4 120px, #FF69B4 180px);
           background-size: 180px 100%; border-top: 6px solid #fff; border-bottom: 6px solid #fff; box-shadow: 0 0 35px rgba(255,255,255,0.25); flex-shrink: 0; }
         .al-bar-top { animation: al-rtl 1.2s linear infinite; }
         .al-bar-bottom { animation: al-ltr 1.2s linear infinite; }
         @keyframes al-rtl { from { background-position: 0 0; } to { background-position: -180px 0; } }
         @keyframes al-ltr { from { background-position: 0 0; } to { background-position: 180px 0; } }
-        .al-text-block { flex: 1; width: 100vw; padding: 30px 20px; text-align: center; background: rgba(0,0,0,0.78); display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+        .al-text-block { flex: 1; width: 100%; padding: 30px 16px; text-align: center; background: rgba(0,0,0,0.78); display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
         .al-main-text { font-family: 'Archivo Black', 'Arial Black', sans-serif; color: #fff; font-size: clamp(1.8rem, 9vw, 6rem); font-weight: 900; text-transform: uppercase; letter-spacing: -3px; line-height: 0.92;
           text-shadow: 4px 4px 0 #FF69B4, 8px 8px 0 #87CEEB, 12px 12px 0 #000; position: relative; animation: al-jitter 4s infinite; }
         @keyframes al-jitter { 0%,100%{transform:translate(0,0)} 92%{transform:translate(0,0)} 93%{transform:translate(-2px,1px)} 94%{transform:translate(2px,-1px)} 95%{transform:translate(-1px,2px)} 96%{transform:translate(1px,-2px)} 97%{transform:translate(0,0)} }
@@ -66,7 +66,8 @@ const AuthLoadingScreen = ({ message }) => {
           z-index: 6; background: #000; padding: 8px 18px; border: 3px solid #FF69B4; font-weight: 700; }
         .al-bottom-label { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); color: #87CEEB; font-size: clamp(0.65rem, 1.5vw, 0.9rem); letter-spacing: 4px;
           z-index: 6; background: #000; padding: 8px 18px; border: 3px solid #87CEEB; font-weight: 700; }
-        .al-side { position: fixed; top: 50%; color: #555; font-size: 0.7rem; letter-spacing: 4px; z-index: 5; font-weight: 700; white-space: nowrap; }
+        .al-side { position: fixed; top: 50%; color: #555; font-size: 0.7rem; letter-spacing: 4px; z-index: 5; font-weight: 700; white-space: nowrap; display: none; }
+        @media (min-width: 640px) { .al-side { display: block; } }
         .al-side-left { left: 25px; transform: translateY(-50%) rotate(-90deg); transform-origin: left center; }
         .al-side-right { right: 25px; transform: translateY(-50%) rotate(90deg); transform-origin: right center; }
         .al-scanlines { position: fixed; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0) 4px);
